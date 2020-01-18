@@ -1,0 +1,91 @@
+# In order for a text file to be parsed, call database.read(<filename>).
+# In order for the text file to be parsed it must ALSO follow this specific structure,
+#   which I will explain through the course of this test file.
+# The parser splits the lines by spaces, so any names with spaces must be replaced with underscores.
+# '#' Denotes comments, which will be ignored by the parser.
+
+# '>' Denotes a faculty line, which must be structured '<Name> <ID>' as shown below.
+
+> Faculty_of_Science 00
+
+	= Computer_Science 00
+	
+	# Once a department has been defined, all programs within it must be defined
+	#   immediately after, before defining another department.
+	
+	# '+' denotes a program line, which must be structured '<name> <ID>' as shown below.
+	
+		+ Undergraduate_Program 00
+
+		
+		# Once a program has been defined, all courses within it must be defined
+		#   immediately after, before defining another program.
+		
+		# '-' denotes a course line, which must be structured '<name> <courseNumber> <ID>'
+		
+			- Introduction_to_Computer_Science_for_Computer_Science_Majors_I 231 00
+			- Introduction_to_Computer_Science_for_Computer_Science_Majors_II 233 01
+			- Introduction_to_Computability 313 02
+			- Data_Structures,_Algorithms,_and_Their_Applications 319 03
+		
+		+ Graduate_Program 01
+		
+			- Special_Topics_in_Computer_Science 601 00
+			- Information_Storage_and_Processing_in_Biological_Systems 605 01
+			- Biological_Computation 607 02
+		            
+		+ Block_Week_Program 02
+	
+	= Chemistry 01
+	    
+		+ Undergraduate_Program 00
+
+		
+			- Foundations_of_Chemistry:_Structure_and_Bonding 211 00
+			- Foundations_of_Chemistry:_Change_and_Equilibrium 213 01
+			- Analytical_Chemistry:_Quantitative_Analysis 311 02
+		
+		+ Graduate_Program 01
+		    
+			- Electrochemical_Fundamentals_and_Methodologies 613 00
+			- Analytical_Separations 615 01
+		            
+		+ Deep_Learning_Program 02
+
+# Indenting isn't required, but I think it makes the document look nicer :)
+# The parser also ignores blank lines so you can fill the doc with however many you like!
+# Any non-blank line that is not preceded by a recognizable symbol will be skipped over and
+#   reported in the console.
+# Below is an example of what an uncommented structure for a Faculty would look like:
+
+> Faculty_of_Arts 01
+
+	= Drama 00
+	
+		+ Undergraduate_Program 00
+
+		
+			- Introduction_to_Acting_I 209 00
+			- Introduction_to_Acting_II 210 01
+		
+		+ Graduate_Program 01
+		
+			- Studies_in_Modern_Drama_I 647 00
+			- Studies_in_Modern_Drama_II 649 01
+		            
+		+ Industry_Focused_Masters_Program 02
+	
+	= Anthropology 01
+			
+		+ Undergraduate_Program 00
+
+		
+			- Human_Evolution 309 00
+			- Primate_Behaviour 311 01
+		
+		+ Graduate_Program 01
+		
+			- Current_Issues_in_Methodology_in_Primatology 613 00
+		        
+		+ Continuing_Education_Program 02
+
